@@ -1,9 +1,13 @@
 class Profile
-  attr_reader :response
+  attr_reader :repositories, :profile
 
   def initialize(username)
     @username = username
-    @response = HTTParty.get("https://api.github.com/users/#{@username}/repos", 
+    @repositories = HTTParty.get("https://api.github.com/users/#{@username}/repos",
+                            :headers => {
+                            "Authorization" => "token #{ENV['GITHUB_TOKEN']}",
+                            "User-Agent" => username })
+    @profile = HTTParty.get("https://api.github.com/users/#{@username}",
                             :headers => {
                             "Authorization" => "token #{ENV['GITHUB_TOKEN']}",
                             "User-Agent" => username })

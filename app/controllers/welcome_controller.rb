@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
   def index
-    @profile = Profile.new("michaelbyrd")
-    @response = @profile.response
-    @names = @profile.repository_names
+    profile = Profile.new("michaelbyrd")
+    @repositories = profile.repositories
+    @profile = profile.profile
   end
 end
