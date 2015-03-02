@@ -1,5 +1,6 @@
 <h1>Welcome#index</h1>
 
-<% @names.each do |n| %>
-  <p><%= n %></p>
+
+<% @response.each do |r| %>
+  <p><%= link_to r["name"], r["url"] %></p>
 <% end %>
