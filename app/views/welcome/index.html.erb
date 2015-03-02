@@ -2,5 +2,5 @@
 
 
 <% @response.each do |r| %>
-  <p><%= link_to r["name"], r["url"] %></p>
+  <p><%= link_to r["name"], r["html_url"] %></p>
 <% end %>
